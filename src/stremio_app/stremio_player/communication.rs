@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 use std::fmt;
 
 // Responses
-const JSON_RESPONSES: [&str; 3] = ["track-list", "video-params", "metadata"];
+const JSON_RESPONSES: [&str; 3] = ["track-list", "video-params", "metadata", "chapter-list"];
 
 #[derive(Serialize, Deserialize, Debug, Clone, Eq, PartialEq)]
 pub struct PlayerProprChange {
@@ -148,6 +148,7 @@ pub enum IntProp {
     Aid,
     Vid,
     Sid,
+    Chapter,
 }
 stringable!(IntProp);
 // Fp
@@ -186,6 +187,7 @@ pub enum StrProp {
     TrackList,
     VideoParams,
     Vo,
+    ChapterList,
 }
 stringable!(StrProp);
 
@@ -260,3 +262,4 @@ pub enum InMsgArgs {
 
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct InMsg(pub InMsgFn, pub InMsgArgs);
+
